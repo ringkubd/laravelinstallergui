@@ -35,7 +35,7 @@ class InstallerServiceProvider extends ServiceProvider
   public function register()
   {
     $this->loadRoutesFrom(__DIR__.'/routes/Routes.php');
-    $this->app->make('Anwar\Bankid\InstallerController');
+    $this->app->make('Anwar\Installer\InstallerController');
     $this->app->bind('Installer', function () {
       return new InstallerController;
     });
