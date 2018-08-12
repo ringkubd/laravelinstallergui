@@ -10,6 +10,10 @@
     ],
     "minimum-stability": "dev",
     "require": {},
+    "psr-4": {
+      "Anwar\\": "src/"
+    }
+  },
     "extra": {
       "laravel": {
         "providers": [
