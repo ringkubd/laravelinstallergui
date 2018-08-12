@@ -1,0 +1,23 @@
+{
+  "name": "anwar/installer",
+  "description": "Simple laravel installer \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D installer like wordpress.",
+    "type": "library",
+    "authors": [
+      {
+        "name": "Anwar Jahid",
+        "email": "ajr.jahid@gmail.com"
+      }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Anwar\\Installer\\InstallerServiceProvider"
+        ],
+        "aliases": {
+          "Installer": "Anwar\\Installer\\InstallerFacade"
+        }
+      }
+    }
+  }
