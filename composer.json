@@ -1,0 +1,29 @@
+{
+    "name": "anwar/auto-installer",
+    "description": "Laravel installer GUI.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "anwar",
+            "email": "ajr.jahid@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Anwar\\": "src/"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anwar\\AutoInstaller\\AutoInstallerProvider"
+            ],
+            "aliases": {
+                "Supports": "Anwar\\AutoInstaller\\Facades\\SupportsFacade"
+            }
+        }
+    }
+}
