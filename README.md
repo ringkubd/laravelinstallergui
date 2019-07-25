@@ -1,2 +1,2 @@
 # laravelinstallergui
-# composer require anwar/auto-installer
+ `composer require anwar/auto-installer`
