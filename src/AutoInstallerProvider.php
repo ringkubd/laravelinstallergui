@@ -15,6 +15,7 @@ class AutoInstallerProvider extends ServiceProvider
     public function register()
     {
         include __DIR__.'/routes/web.php';
+        include_once __DIR__.'/supports/Helpers.php';
     }
 
     /**
@@ -24,13 +25,26 @@ class AutoInstallerProvider extends ServiceProvider
      */
     public function boot()
     {
-        foreach (new \DirectoryIterator(__DIR__.'/language') as $file){
-            if ($file->isFile()){
-                $this->loadTranslationsFrom(__DIR__."/$file->getFilename().php", 'autoinstaller');
-            }
-        }
+        $this->loadTranslationsFrom(__DIR__.'/language', 'AutoInstall');
 
         $this->loadViewsFrom(__DIR__."/views","AutoInstall");
 
+        $this->publishes([
+            __DIR__.'/assets' => public_path('vendor/autoinstall'),
+        ], 'public');
+
+        /**
+         * @desc Register Configs file
+         */
+
+        $configFile = [];
+        foreach (new \DirectoryIterator(__DIR__.'/configs') as $file){
+            if ($file->isFile()){
+                $configFile[__DIR__."/configs/".$file->getFilename()] = config_path($file->getFilename());
+            }
+        }
+
+        $this->publishes($configFile);
     }
+
 }

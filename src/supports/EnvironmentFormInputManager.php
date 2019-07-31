@@ -10,7 +10,7 @@ class EnvironmentFormInputManager
         $envarray = \Supports::EnvironmentFileManager()->getEnvAsKeyValue();
 
         if (empty($envarray)){
-            return trans("autoinstaller_message.env.empty");
+            return trans("AutoInstall::autoinstaller_message.env.empty");
         }
 
         $rendered = "";

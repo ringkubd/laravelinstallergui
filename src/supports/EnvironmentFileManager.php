@@ -62,7 +62,7 @@ class EnvironmentFileManager
     public function getEnvAsKeyValue(){
         $every_line_as_array = $this->getEnvContentAsArray();
         if (empty($every_line_as_array)){
-            return trans("autoinstaller_message.env.empty");
+            return trans("AutoInstall::autoinstaller_message.env.empty");
         }
 
         $key_value_array = [];
@@ -99,11 +99,11 @@ class EnvironmentFileManager
      */
 
     public function saveEnvClassicWay(Request $request){
-        $message = trans("autoinstaller_message.env.success");
+        $message = trans("AutoInstall::autoinstaller_message.env.success");
         try{
             file_get_contents($this->envFilePath,$request->envcontent);
         }catch (\Exception $exception){
-            return $message = trans("autoinstaller_message.env.error");
+            return $message = trans("AutoInstall::autoinstaller_message.env.error");
         }
     }
 

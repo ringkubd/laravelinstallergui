@@ -2,21 +2,19 @@
 
 
 namespace Anwar\AutoInstaller\Supports;
-
-
-
-
 use Illuminate\Http\Request;
 
 class SupportsFactory
 {
     private $environmentFileManager;
     private $environmentFormInputManager;
+    private $environmentRequirements;
 
-    public function __construct(EnvironmentFileManager $environmentFileManager,EnvironmentFormInputManager $environmentFormInputManager)
+    public function __construct(EnvironmentFileManager $environmentFileManager,EnvironmentFormInputManager $environmentFormInputManager,EnvironmentRequirements $environmentRequirements)
     {
         $this->environmentFileManager = $environmentFileManager;
         $this->environmentFormInputManager = $environmentFormInputManager;
+        $this->environmentRequirements = $environmentRequirements;
     }
 
     /**
@@ -34,7 +32,15 @@ class SupportsFactory
     public function EnvironmentFormInputManager(){
         return $this->environmentFormInputManager;
     }
-    
+
+    /**
+     * @return EnvironmentRequirements
+     */
+
+    public function EnvironmentRequirements(){
+        return $this->environmentRequirements;
+    }
+
 
     /**
      * @param $name
