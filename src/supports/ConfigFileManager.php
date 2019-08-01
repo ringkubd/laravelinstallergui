@@ -29,7 +29,11 @@ class ConfigFileManager
         $fileListWithLink = [];
         foreach (new \DirectoryIterator($configDirectory) as $file){
             if ($file->isFile()){
-                $fileListWithLink[$file->getFilename()] = $file->getRealPath();
+                $filenameWithOutExtention = substr($file->getFilename(),0,strrpos($file->getFilename(),"."));
+                $secured_config = config("secured_config.secure") ?? [];
+                if (!in_array($filenameWithOutExtention,$secured_config)){
+                    $fileListWithLink[$file->getFilename()] = $file->getRealPath();
+                }
             }
         }
         return $fileListWithLink;
