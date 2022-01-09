@@ -15,7 +15,7 @@ class AutoInstallerProvider extends ServiceProvider
     public function register()
     {
         include __DIR__.'/routes/web.php';
-        include_once __DIR__.'/supports/Helpers.php';
+        include_once __DIR__.'/Supports/Helpers.php';
     }
 
     /**
@@ -38,9 +38,9 @@ class AutoInstallerProvider extends ServiceProvider
          */
 
         $configFile = [];
-        foreach (new \DirectoryIterator(__DIR__.'/configs') as $file){
+        foreach (new \DirectoryIterator(__DIR__.'/Configs') as $file){
             if ($file->isFile()){
-                $configFile[__DIR__."/configs/".$file->getFilename()] = config_path($file->getFilename());
+                $configFile[__DIR__."/Configs/".$file->getFilename()] = config_path($file->getFilename());
             }
         }
 
